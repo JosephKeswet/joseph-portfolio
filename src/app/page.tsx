@@ -1,113 +1,150 @@
+"use client";
+import { PinContainer } from "@/components/ui/3d-pin";
+import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
+import { Meteors } from "@/components/ui/meteors";
 import Image from "next/image";
+import Link from "next/link";
 
 export default function Home() {
-	return (
-		<main className="flex min-h-screen flex-col items-center justify-between p-24">
-			<div className="z-10 w-full max-w-5xl items-center justify-between font-mono text-sm lg:flex">
-				<p className="fixed left-0 top-0 flex w-full justify-center border-b border-gray-300 bg-gradient-to-b from-zinc-200 pb-6 pt-8 backdrop-blur-2xl dark:border-neutral-800 dark:bg-zinc-800/30 dark:from-inherit lg:static lg:w-auto  lg:rounded-xl lg:border lg:bg-gray-200 lg:p-4 lg:dark:bg-zinc-800/30">
-					Get started by editing
-					<code className="font-mono font-bold">src/app/page.tsx</code>
-				</p>
-				<div className="fixed bottom-0 left-0 flex h-48 w-full items-end justify-center bg-gradient-to-t from-white via-white dark:from-black dark:via-black lg:static lg:size-auto lg:bg-none">
-					<a
-						className="pointer-events-none flex place-items-center gap-2 p-8 lg:pointer-events-auto lg:p-0"
-						href="https://vercel.com?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-						target="_blank"
-						rel="noopener noreferrer"
-					>
-						By{" "}
-						<Image
-							src="/vercel.svg"
-							alt="Vercel Logo"
-							className="dark:invert"
-							width={100}
-							height={24}
-							priority
-						/>
-					</a>
-				</div>
-			</div>
+  const handleScrollToProjects = () => {
+    const projectsSection = document.getElementById("projects");
+    if (projectsSection) {
+      // Calculate the position and subtract the offset (e.g., 100px for the navbar)
+      const offsetPosition = projectsSection.offsetTop - 100;
 
-			<div className="relative z-[-1] flex place-items-center before:absolute before:h-[300px] before:w-full before:-translate-x-1/2 before:rounded-full before:bg-gradient-radial before:from-white before:to-transparent before:blur-2xl before:content-[''] after:absolute after:-z-20 after:h-[180px] after:w-full after:translate-x-1/3 after:bg-gradient-conic after:from-sky-200 after:via-blue-200 after:blur-2xl after:content-[''] before:dark:bg-gradient-to-br before:dark:from-transparent before:dark:to-blue-700 before:dark:opacity-10 after:dark:from-sky-900 after:dark:via-[#0141ff] after:dark:opacity-40 sm:before:w-[480px] sm:after:w-[240px] before:lg:h-[360px]">
-				<Image
-					className="relative dark:drop-shadow-[0_0_0.3rem_#ffffff70] dark:invert"
-					src="/next.svg"
-					alt="Next.js Logo"
-					width={180}
-					height={37}
-					priority
-				/>
-			</div>
+      // Smoothly scroll to the offset position
+      window.scrollTo({
+        top: offsetPosition,
+        behavior: "smooth",
+      });
+    }
+  };
+  return (
+    <BackgroundBeamsWithCollision className="w-full min-h-screen ">
+      <main className="pt-28 md:pt-40 px-6 md:px-20">
+        {/* Introduction Section */}
+        <section className="flex flex-col gap-8 md:gap-10 text-white h-[55vh] justify-end">
+          <h2 className="text-[18px] md:text-[24px] w-full max-w-[400px] md:max-w-[500px] font-light">
+            I design clean, user-centered interfaces that transform ideas into
+            impactful digital experiences, empowering clients to succeed online.
+          </h2>
+          <div className="flex flex-col md:flex-row items-start md:items-end justify-between">
+            <h1 className="text-[clamp(48px,5vw,48px)] md:text-[clamp(64px,8vw,96px)] w-full max-w-[680px] md:max-w-[980px] font-light leading-[1.1] md:leading-[90px] ">
+              Product Development{" "}
+              <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 font-bold">
+                Experience
+              </span>
+            </h1>
+            <div className="flex flex-col items-end md:items-start mt-4 md:mt-0">
+              <Link
+                href="mailto:jhezekiah19@gmail.com"
+                className="text-slate-300 text-sm md:text-base"
+              >
+                jhezekiah19@gmail.com
+              </Link>
 
-			<div className="mb-32 grid text-center lg:mb-0 lg:w-full lg:max-w-5xl lg:grid-cols-4 lg:text-left">
-				<a
-					href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Docs{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Find in-depth information about Next.js features and API.
-					</p>
-				</a>
+              <p
+                onClick={handleScrollToProjects}
+                className="text-xs md:text-sm text-slate-400 text-right cursor-pointer"
+              >
+                Scroll to explore
+              </p>
+            </div>
+          </div>
+        </section>
 
-				<a
-					href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Learn{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Learn about Next.js in an interactive course with&nbsp;quizzes!
-					</p>
-				</a>
+        {/* Portfolio Section */}
+        <section
+          id="projects"
+          className="flex flex-col gap-28 md:gap-40 my-28 md:my-72 "
+        >
+          <h1 className="text-white text-[25px] md:text-[50px] ">Projects</h1>
+          <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-x-52 md:gap-x-6  gap-y-52 md:gap-y-60  ">
+            <PinContainer title="onionpay.io" href="https://onionpay.io/">
+              <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[22rem] h-[500px]  ">
+                <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+                  Onionpay
+                </h3>
+                <div className="text-base !m-0 !p-0 font-normal">
+                  <span className="text-slate-500 ">
+                    Swift payments for every business!
+                  </span>
+                </div>
+                <div className="flex flex-1 w-full rounded-lg mt-4 overflow-hidden">
+                  <img
+                    src="/assets/OnionpayHome.png"
+                    alt="Onionpay UI Preview"
+                    className="w-full h-[700px] object-bottom"
+                  />
+                </div>
 
-				<a
-					href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Templates{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-sm opacity-50">
-						Explore starter templates for Next.js.
-					</p>
-				</a>
-
-				<a
-					href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template&utm_campaign=create-next-app"
-					className="group rounded-lg border border-transparent px-5 py-4 transition-colors hover:border-gray-300 hover:bg-gray-100 hover:dark:border-neutral-700 hover:dark:bg-neutral-800/30"
-					target="_blank"
-					rel="noopener noreferrer"
-				>
-					<h2 className="mb-3 text-2xl font-semibold">
-						Deploy{" "}
-						<span className="inline-block transition-transform group-hover:translate-x-1 motion-reduce:transform-none">
-							-&gt;
-						</span>
-					</h2>
-					<p className="m-0 max-w-[30ch] text-balance text-sm opacity-50">
-						Instantly deploy your Next.js site to a shareable URL with Vercel.
-					</p>
-				</a>
-			</div>
-		</main>
-	);
+                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
+              </div>
+            </PinContainer>
+            <PinContainer title="smartel.org" href="https://www.smartelco.org/">
+              <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[22rem] h-[500px]  ">
+                <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+                  Smartel
+                </h3>
+                <div className="text-base !m-0 !p-0 font-normal">
+                  <span className="text-slate-500 ">
+                    Growing hope, sustaining the future.
+                  </span>
+                </div>
+                <div className="flex flex-1 w-full rounded-lg mt-4 overflow-hidden">
+                  <img
+                    src="/assets/SmartelHome.png"
+                    alt="Smartel UI Preview"
+                    className="w-full h-[5078px] object-bottom"
+                  />
+                </div>
+                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
+              </div>
+            </PinContainer>
+            <PinContainer
+              title="starkpay.africa"
+              href="https://www.starkpay.africa/"
+            >
+              <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[22rem] h-[500px]  ">
+                <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+                  StarkPay
+                </h3>
+                <div className="text-base !m-0 !p-0 font-normal">
+                  <span className="text-slate-500 ">
+                    Simplify your payments with StarkPay
+                  </span>
+                </div>
+                <div className="flex flex-1 w-full rounded-lg mt-4 overflow-hidden">
+                  <img
+                    src="/assets/StarkpayHome.png"
+                    alt="Starkpay UI Preview"
+                    className="w-full h-[914px] object-bottom"
+                  />
+                </div>
+                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
+              </div>
+            </PinContainer>
+            <PinContainer title="ekoplug.ng" href="https://www.ekoplug.ng/">
+              <div className="flex basis-full flex-col p-4 tracking-tight text-slate-100/50 sm:basis-1/2 w-[22rem] h-[500px]  ">
+                <h3 className="max-w-xs !pb-2 !m-0 font-bold  text-base text-slate-100">
+                  Ekoplug
+                </h3>
+                <div className="text-base !m-0 !p-0 font-normal">
+                  <span className="text-slate-500 ">E-commerce</span>
+                </div>
+                <div className="flex flex-1 w-full rounded-lg mt-4 overflow-hidden">
+                  <img
+                    src="/assets/EkoplugHome.png"
+                    alt="Ekoplug UI Preview"
+                    className="w-full h-[652px] object-bottom"
+                  />
+                </div>
+                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
+              </div>
+            </PinContainer>
+          </div>
+        </section>
+      </main>
+    </BackgroundBeamsWithCollision>
+  );
 }
