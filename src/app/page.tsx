@@ -1,5 +1,6 @@
 "use client";
 import { PinContainer } from "@/components/ui/3d-pin";
+import { BackgroundBeams } from "@/components/ui/background-beams";
 import { BackgroundBeamsWithCollision } from "@/components/ui/background-beams-with-collision";
 import { Meteors } from "@/components/ui/meteors";
 import Image from "next/image";
@@ -20,32 +21,34 @@ export default function Home() {
     }
   };
   return (
-    <BackgroundBeamsWithCollision className="w-full min-h-screen ">
-      <main className="pt-28 md:pt-40 px-6 md:px-20">
+    <BackgroundBeamsWithCollision >
+      <main className="pt-40 md:pt-40 px-6 md:px-20 ">
         {/* Introduction Section */}
         <section className="flex flex-col gap-8 md:gap-10 text-white h-[55vh] justify-end">
-          <h2 className="text-[18px] md:text-[24px] w-full max-w-[400px] md:max-w-[500px] font-light">
-            I design clean, user-centered interfaces that transform ideas into
-            impactful digital experiences, empowering clients to succeed online.
+          <h2 className="text-[18px] md:text-[24px] w-full md:max-w-[600px] font-light">
+            I&apos;m a frontend developer focused on crafting clean, user-centered
+            interfaces that turn ideas into impactful digital experiences,
+            helping clients thrive online.
           </h2>
           <div className="flex flex-col md:flex-row items-start md:items-end justify-between">
-            <h1 className="text-[clamp(48px,5vw,48px)] md:text-[clamp(64px,8vw,96px)] w-full max-w-[680px] md:max-w-[980px] font-light leading-[1.1] md:leading-[90px] ">
-              Product Development{" "}
-              <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 font-bold">
-                Experience
-              </span>
-            </h1>
+          <h1 className="text-[clamp(48px,5vw,48px)] md:text-[clamp(64px,8vw,96px)] w-full max-w-[680px] md:max-w-[980px] font-light leading-[1.1] md:leading-[90px]">
+  Building Exceptional{" "}
+  <span className="text-transparent bg-clip-text bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500 font-bold">
+    User Experiences
+  </span>
+</h1>
+
             <div className="flex flex-col items-end md:items-start mt-4 md:mt-0">
               <Link
                 href="mailto:jhezekiah19@gmail.com"
-                className="text-slate-300 text-sm md:text-base"
+                className="text-slate-400 text-sm md:text-base "
               >
-                jhezekiah19@gmail.com
+                <span className="font-semibold text-slate-300">Contact:</span> <span className="text-white animate-glow">jhezekiah19@gmail.com</span>
               </Link>
 
               <p
                 onClick={handleScrollToProjects}
-                className="text-xs md:text-sm text-slate-400 text-right cursor-pointer"
+                className="text-xs md:text-sm text-slate-400 text-left lg:text-right cursor-pointer"
               >
                 Scroll to explore
               </p>
@@ -139,12 +142,14 @@ export default function Home() {
                     className="w-full h-[652px] object-bottom"
                   />
                 </div>
-                {/* <div className="flex flex-1 w-full rounded-lg mt-4 bg-gradient-to-br from-violet-500 via-purple-500 to-blue-500" /> */}
               </div>
             </PinContainer>
           </div>
+        <BackgroundBeams />
+
         </section>
       </main>
+        <BackgroundBeams />
     </BackgroundBeamsWithCollision>
   );
 }

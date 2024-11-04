@@ -48,22 +48,26 @@ export default function NavBar({}: Props) {
               Projects
             </li>
           </ul>
-          <Link 
-                href="mailto:jhezekiah19@gmail.com"
-                >
-          <Button className="text-black bg-white rounded-full hover:bg-white/70">
-            Contact
-          </Button>
+          <Link href="mailto:jhezekiah19@gmail.com">
+            <Button className="text-black bg-white rounded-full hover:bg-white/70">
+              Contact
+            </Button>
           </Link>
         </div>
-
+        <Link className="flex md:hidden" href="mailto:jhezekiah19@gmail.com">
+                    <Button className="text-black bg-white rounded-full hover:bg-white/70">
+                      Contact
+                    </Button>
+                  </Link>
         {/* Mobile Sheet Menu Trigger */}
-        <div className="md:hidden flex items-center">
+        {/* <div className="md:hidden flex items-center">
           <Sheet open={isOpen} onOpenChange={setIsOpen}>
             <SheetTrigger asChild>
-              <Button variant="ghost" className="text-white p-0">
-                <Menu size={24} />
-              </Button>
+            <Link href="mailto:jhezekiah19@gmail.com">
+                    <Button className="text-black bg-white rounded-full hover:bg-white/70">
+                      Contact
+                    </Button>
+                  </Link>
             </SheetTrigger>
             <SheetContent
               side="left"
@@ -76,7 +80,7 @@ export default function NavBar({}: Props) {
                 Navigate through the sections to learn more about my work,
                 studio, and how to get in touch.
               </SheetDescription>
-              <div className="p-6">
+              <div className="p-6 flex flex-col gap-6">
                 <ul className="list-none flex flex-col gap-4 text-white font-light">
                   <li
                     onClick={handleScrollToProjects}
@@ -84,21 +88,18 @@ export default function NavBar({}: Props) {
                   >
                     Projects
                   </li>
-
                 </ul>
-                <SheetClose asChild>
-                <Link 
-                href="mailto:jhezekiah19@gmail.com"
-                >
-          <Button className="text-black bg-white rounded-full hover:bg-white/70">
-            Contact
-          </Button>
-          </Link>
+                <SheetClose  asChild>
+                  <Link href="mailto:jhezekiah19@gmail.com">
+                    <Button className="text-black bg-white rounded-full hover:bg-white/70">
+                      Contact
+                    </Button>
+                  </Link>
                 </SheetClose>
               </div>
             </SheetContent>
           </Sheet>
-        </div>
+        </div> */}
       </section>
     </nav>
   );
